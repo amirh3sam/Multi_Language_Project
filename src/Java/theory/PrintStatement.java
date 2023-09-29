@@ -1,4 +1,4 @@
-package Java;
+package Java.theory;
 
 public class PrintStatement {
 
