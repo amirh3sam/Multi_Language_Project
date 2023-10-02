@@ -13,6 +13,5 @@
     </content>
     <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Python 3.11 (untitled) interpreter library" level="application" />
   </component>
 </module>
