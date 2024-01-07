@@ -1,6 +1,6 @@
-let a = 10;
-let b =15;
-let c = 20 ;
+let a:number = 10;
+let b:number =15;
+let c:number = 20 ;
 
 let aIsMedian = (b < a && a < c) || (b > a && a > c);
 let bIsMedian = (a < b && b < c) || (a > b && b > c);
