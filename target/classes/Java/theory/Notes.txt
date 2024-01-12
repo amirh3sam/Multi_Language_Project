@@ -1,0 +1,410 @@
+1. Primitives: byte < short < int < long < float < double
+			char, boolean
+
+			DataType  Var  = Data
+
+2. Primitive Type castings:
+
+			implicit casting: smaller primitive type to larger primitive type
+
+			explicit casting: larger primitive type to smaller primitive type
+
+
+
+3. Wrapper class: the object type of the primitives
+
+		Byte, Short, Integer ....
+
+		parse methods
+		valueOf methods
+
+		autoboxing
+		unboxing
+
+
+
+4. Sequence of characters:
+
+			String: immutable
+
+				substring(), length(), charAt(), lower/case, replace, trim, equals/ignore-case
+
+			StringBuilder: mutable.
+
+			StringBuffer: mutable. synchronized
+
+
+
+6. Loops:  for & while
+
+	for loop: iteration number is fixed/known
+
+					i=0;           i < 10      i++
+			for(initialization; condition;  Iterator){
+				statements that needs to be repeated
+			}
+
+
+	While loop: number of iteration is unknown
+
+			while(condition){
+				statements that needs to be repeated
+			}
+
+
+			while(resultSet.hasNext()){
+
+			}
+
+	do-while loop: at least gets executed once
+
+
+
+
+7. Array: Data Structures
+		 size is fixed. faster
+		 supports both primitives and non primitives
+		 can be multidimensional
+
+
+8. for each loop: there must be a data structure
+				  number of iterations and order of the iteration are fixed
+
+
+9. Custom Methods: Set of instruction that can perform a task
+
+		AM ReturnType MethodName(Parameter){
+				Codes fragments that are needed to perform the desired task
+		}
+
+		improves the re-usability of our codes
+
+
+
+10. Method Overloading: multiple methods having the same method name
+						Parameters MUST be different
+						Happens in same class
+
+
+11. Constructor:  used when we create objects from the class.
+				execution depends on the object
+
+		AM className(parameters){
+			codes
+		}
+
+
+		BasePage:
+
+			public BasePage(){
+				PageFactory.initElement(driver, this)
+			}
+
+
+			@FindBy
+
+
+			HomePage extends BasePage
+
+			SecondPage extends BasePage
+
+
+		Driver:
+
+
+			private Driver(){
+
+			}
+
+			static WebDriver;
+
+			getDriver(){
+
+			}
+
+
+
+12. Class & Objects:
+		class is a template/blueprint of object, where the object came from. determines how the object should be created and how the object should behave
+
+		Object is result of the class. one instance of a class, each object will have its own memory
+
+
+
+13. Static vs Instance:
+
+		instance: belongs to object. Multiple copies, each object has its own copy
+
+		static: belong to class. one copy, all objects will share same copy
+
+
+
+14. import statements:
+
+		regular import:
+			import package.class
+
+
+		static import:
+			import static package.class.member
+
+
+15. Access Modifiers:
+
+		private < default < protected < public
+
+		private: visible within the class ONLY
+
+		default: visible within the same package
+
+		protected: always visible within the same package. also visible outside the packages to subclasses
+
+		public: always visible
+
+
+
+16. OOP Encapsulations: hiding the data by declaring them private.
+
+						use the public getter/setter to read/write the data
+
+						Getter: Read ONLY
+								returns the value of the private instance variable
+								0 parameters
+
+						Setter: Write ONLY
+								does not return any value
+								1 parameter
+
+
+				In my framework I used it in POJO classes
+
+
+
+17. OOP Inheritance: building parent & child relations between classes
+
+					extends
+					implements
+
+					classA extends classB
+					interfaceA extends interfaceB, interfaceC..
+
+					classA implements interfaceB
+
+					classA extends classB implement interfaceC
+
+
+					subclass (child): can inherit all the visible variable & methods ONLY
+
+					superclass (parent): does not inherit anything
+
+
+					BasePage:
+						public BasePage(){
+							PageFactory.initElement(driver, this)
+						}
+
+
+						@FindBy
+
+
+						HomePage extends BasePage
+
+						SecondPage extends BasePage
+
+
+
+
+
+					TestBase:
+						@BeforeMethod{
+							Open Browser
+							implicitWait
+							Maximize
+							navigate
+						}
+
+						@AfterMethod{
+							close the browser
+
+							takeScreenshot and add it to the report if failed
+						}
+
+
+
+					TestCases1 extends TestBase:
+
+						@Test{
+
+						}
+
+						@Test{
+
+
+						}
+
+						@Test{
+
+
+						}
+
+
+
+18. Method Overriding: giving different implementations to a method
+						must happen in subclass
+
+						method name, parameters, return types are same
+						AM same or more visible
+
+						can not override: static, final, private methods
+
+
+
+19. Final keyword:
+	variable: can not re-assign
+	method: can not be override
+	class: can not be inherited
+
+
+
+20. OOP Abstraction: hiding implementation
+
+					Ignore the small details, focus on the essentials only
+
+				2 ways:
+					abstract class: meant to be parent class. Only contain the common feature of all subclasses
+
+						TestBase
+						BasePage
+
+
+					interface: for providing additional features
+
+
+					TakeScreenShot
+					WebDriver
+					JavaScriptExecuter
+					....
+					List
+					Set
+					Map
+					...
+					Connection
+					Statement
+					ResultSet
+					Response
+
+
+
+22. OOP Polymorphism: ability of object to take many forms
+
+		Driver class:
+
+			WebDriver getDriver(){
+
+			}
+
+
+
+23. Reference Type Castings: There must be inheritance
+
+		upCasting: smaller reference type to larger reference type
+
+		downCasting: larger reference type to smaller reference type
+
+
+
+
+
+		WebDriver driver = new FireFoxDriver();
+		( (TakeScreenShot)driver ).takeScreenShot()
+		( (JavaScriptExecuter)driver).executeScript()
+
+
+24. Exceptions: checked & unchecked
+
+		checked: compile time
+		unchecked: runtime
+
+
+		25. Exception Handling:
+
+				try & catch: for both checked & unchecked
+
+						try{
+							exception codes
+						}catch(){
+							printStackTrace
+						}finally{
+
+						}
+
+
+						try{
+
+						}catch(Exceptions){
+
+						}
+
+
+				throws: for checked exceptions, fastest solution
+
+						caller of the method will have the same exception
+
+
+		throw: raises an exception
+
+		NullPointer
+		NoSuchElement
+		ClassCast
+		TimeOutException
+		WebDriverException
+		StaleElement
+
+
+26. final vs finally vs finalize:
+
+
+
+27. Garbage Collection & Garbage Collector:
+
+		garbage collection: collection of unreferenced object
+
+					driver =null
+
+		garbage collector: a processes which is done in JVM
+							finalize()
+
+
+28. Collections: size is dynamic
+				does not support primitive
+
+		List: has indexes, duplicates are accepted
+
+			ArrayList: faster in retrieving the element
+
+			List<Map<String, Object>>
+
+			List<WebElements> list = driver.findElements
+
+
+		Set: Does not have indexes, duplicates are NOT accepted
+
+			HashSet: faster, random
+
+			Set<String> = getWindowHandles()
+
+			ResultSet
+
+
+29. Iterable & Iterator:
+
+		removeIf()
+
+
+30. Maps: for Pairs (Key and Value). key must be unique.
+			does not support primitive
+
+		HashMap: Fastest, accepts null key & value. random order
+		LinkedHashMap: maintains the insertion order, accepts null key & value
+
+		xml
