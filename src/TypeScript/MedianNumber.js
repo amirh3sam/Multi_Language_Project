@@ -13,4 +13,3 @@ else if (bIsMedian) {
 else {
     console.log("".concat(c, " is a median number"));
 }
-//# sourceMappingURL=MedianNumber.js.map
